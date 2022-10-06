@@ -4,34 +4,33 @@ import KeyPad from './components/KeyPad';
 import Result from './components/Result';
 
 class App extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+
+        console.log(props)
 
         this.state = {
             result: ""
         }
     }
 
-    onClick = button => {
+    onClick = (button) => {
 
         if(button === "="){
             this.calculate()
         }
-
         else if(button === "C"){
             this.reset()
         }
         else if(button === "CE"){
             this.backspace()
         }
-
         else {
             this.setState({
                 result: this.state.result + button
             })
         }
     };
-
 
     calculate = () => {
         var checkResult = ''
